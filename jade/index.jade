@@ -1,0 +1,409 @@
+include mixins.pug
+doctype html
+html(lang='ru')
+    +dev_head('Flomni', 'i/Flomni_logo.svg')
+
+    body
+        .wrapper
+            .base
+                div.header
+                    .section_inner.clearfix
+                        .logo_block
+                            a.logo(href='/')
+                                img(src='i/Flomni_logo.svg')
+
+                        .mob_menu
+                            .mob_menu_btn
+                    
+                        .menu_holder: ul.main_menu
+                            li.menu_item
+                                a.menu_link.bg_color_white_mod(href='#how')
+                                    span.link_text Как работает
+                            li.menu_item
+                                a.menu_link.bg_color_blue_mod(href='#tasks')
+                                    span.link_text Какие задачи решает
+                            li.menu_item
+                                a.menu_link.bg_color_orange_mod(href='#price')
+                                    span.link_text Сколько стоит
+                            
+                        ul.user_menu
+                            li
+                                a.btn_v1.join_btn.btn_blue_white(href='#') 
+                                    span Подключиться
+
+                div.main_content
+                    .section.section_v1
+                        #how.hero_block
+                            .video_holder
+                                video#bgvid.video(poster="i/videohive.png", muted="true", loop="true")
+                                    source(src="video/hero.webm", type="video/webm")
+                                    source(src="video/hero.mp4", type="video/mp4")
+
+                            .section_inner
+                                .hero_slider
+                                    .heroSlider
+                                        .slide
+                                            .hero_caption Снизьте число отказов <br> по заказам на 41%
+                                                
+                                            .hero_text
+                                                p 90% заказов подтверждает робот
+                                                p Покупатель получает уведомление о заказе мгновенно
+                                                p Аврал, ночь, внезапный наплыв заказов в выходные и праздники — заказ будет обработан идеально! 
+                                        .slide
+                                            .hero_caption Снизьте число отказов <br> по заказам на 41%
+                                                
+                                            .hero_text
+                                                p 80% заказов подтверждает робот
+                                                p Аврал, ночь, внезапный наплыв заказов в выходные и праздники — заказ будет обработан идеально! 
+                                        .slide
+                                            .hero_caption Снизьте число отказов <br> по заказам на 41%
+                                                
+                                            .hero_text
+                                                p 70% заказов подтверждает робот
+                                                p Покупатель получает уведомление о заказе мгновенно
+                                    .slide_conrols
+                                        .slide_prev.heroSliderPrev
+                                        .slide_next.heroSliderNext
+                                    
+                                .hero_controls
+                                    p.text_center
+                                        a.btn_v2.join_btn.btn_orange.openJoinPopup(href='#')
+                                            span Подключиться
+                                            
+                                    p.text_center
+                                        a.gl_link.link_blue(href='#') или узнать о Flomni больше
+
+                            .section_inner
+                                .service_info
+                                    .caption_v1 Сервис для обработки заказов ваших клиентов в мессенджерах
+                                    ul.service_list
+                                        li
+                                            .service_item
+                                                .service_img: img(src='i/dove.svg')
+                                                p Гарантия доставки сообщений
+                                                
+                                        li
+                                            .service_item
+                                                .service_img: img(src='i/online-shop.svg')
+                                                p Допродажи прямо в мессенджере
+                                                
+                                        li
+                                            .service_item
+                                                .service_img: img(src='i/magic-wand2.svg')
+                                                p Готовые авто-сценарии обработки заказа
+                                                
+                                        li
+                                            .service_item
+                                                .service_img: img(src='i/customer-service.svg')
+                                                p Отличная техподдержка и кейсы от сервиса
+                                .customer_service_block
+                                    //-.customer_service_clouds
+                                        img(src='i/soc_clouds.png')
+                                    ul.customer_service_list
+                                        li
+                                            .customer_s_unit
+                                                .customer_s_icon
+                                                    .i-telegram 
+                                                .customer_s_text Telegram
+                                                    
+                                        li
+                                            .customer_s_unit
+                                                .customer_s_icon
+                                                    .i-viber
+                                                .customer_s_text Viber
+                                                    
+                                        li
+                                            .customer_s_unit
+                                                .customer_s_icon
+                                                    .i-fb_m
+                                                .customer_s_text Facebook Messenger
+                                                    
+                                        li
+                                            .customer_s_unit
+                                                .customer_s_icon
+                                                    .i-vk
+                                                .customer_s_text Vkontakte
+                                                    
+                                        li
+                                            .customer_s_unit
+                                                .customer_s_icon
+                                                    .i-whatsup
+                                                .customer_s_text 
+                                                    span WhatsApp
+                                                    span.clr_blue.customer_s_index скоро
+                                    
+                                    
+                                    .text_center
+                                        a.flomni_btn.btn_v1
+                                            img(src='i/flomni_btn.svg')
+                                            
+                                    .customer_s_info
+                                        .caption_v1.text_center Обслуживание клиентов в мессенджерах в одном окне
+                                        p FLomni позволяет компаниям взаимодействовать со своими клиентами через мессенджеры. Мы представляем надежный, простой в использовании сервис, который делает возможным работу с клиентами в удобных им каналах связи (Telegram, VK etc.), используя единое окно - личный кабинет Flomni. Автоматизированные сценарии обработки типовых обращений позволяют снижать нагрузку с операторов и экономить ваши деньги. Интерактивные возможности дают возможность продавать более эффективно и позволяют вам увеличить прибыль
+
+                    #tasks.section.section_v2
+                        .section_inner
+                            .tasks_holder
+                                .tasks_block
+                                    .tasks_list
+                                        .caption_v2 Какие задачи помогаем решить
+    
+                                        .taskSlider.task_slider
+                                            +loop_while(3)
+                                                .task_unit
+                                                    .caption_v1 Подтверждение заказа 2.0
+                    
+                                                    p Экономьте на дорогих SMS и звонках, позволяя клиенту подтвердить заказ в мессенджере, есди для него это удобно. Клиент может подтвердить дату доставки, сделать уточнения и скорректировать заказ. Типовые сценарии не требует участия живого оператора с вашей стороны и полностью автоматизированы.
+                                                    
+                                                .task_unit
+                                                    .caption_v1 Возврат клиентов
+                    
+                                                    p Верните покупателей, которые давно не покупали в вашем магазине. Экономьте на дорогих SMS и звонках, позволяя клиенту подтвердить заказ в мессенджере, есди для него это удобно. Клиент может подтвердить дату доставки, сделать уточнения и скорректировать заказ. Типовые сценарии не требует участия живого оператора с вашей стороны и полностью автоматизированы.
+    
+                                    .tasks_display
+                                        .task_msg_slider
+                                            .task_msg_header
+                                                .task_msg_time 10:30
+                                                .task_msg_battery 100%
+                                                .task_msg_caption Интернет-магазин
+                                            .displaySlider.display_slider
+                                                +loop_while(3)
+                                                    .display_slide
+                                                        .task_msg._left
+                                                            p Вы оформили заказ №312 на сумму 1 521 руб. Подтверждаете?
+                                                            p._active
+                                                                a(href='#') Да, подтверждаю
+                                                            p
+                                                                a(href='#') Хочу уточниить состав заказа
+                                                            p
+                                                                a(href='#') Нет, отмените заказ
+    
+                                                        .task_msg._right
+                                                            p Да, подтверждаю
+    
+                                                        .task_msg._left
+                                                            p Как бы Вы хотели получить заказ?
+                                                            p
+                                                                a(href='#') Самовывоз
+                                                            p
+                                                                a(href='#') Курьерская доставка
+    
+                                                        .task_msg._right
+                                                            p Сколько стоит курьерская доставка?
+    
+                                                        .task_msg._left
+                                                            p 250 рублей до квартиры
+    
+                                                        .task_msg._right
+                                                            p Сколько стоит курьерская доставка?
+
+                                                    .display_slide
+                                                        .task_msg._left
+                                                            p 250 рублей до квартиры
+                                                        
+                                                        .task_msg._right
+                                                            p Сколько стоит курьерская доставка?
+                                                            
+                                                        .task_msg._left
+                                                            p Как бы Вы хотели получить заказ?
+                                                            p
+                                                                a(href='#') Самовывоз
+                                                            p
+                                                                a(href='#') Курьерская доставка
+
+                                                        .task_msg._right
+                                                            p Сколько стоит курьерская доставка?
+                                                    
+                                                        .task_msg._left
+                                                            p Вы оформили заказ №312 на сумму 1 521 руб. Подтверждаете?
+                                                            p._active
+                                                                a(href='#') Да, подтверждаю
+                                                            p
+                                                                a(href='#') Хочу уточниить состав заказа
+                                                            p
+                                                                a(href='#') Нет, отмените заказ
+
+                                                        .task_msg._right
+                                                            p Да, подтверждаю
+                                                            
+
+                                .mob_center
+                                    a.btn_v2.try_btn.btn_red(href='#')
+                                        span Попробовать
+                                    
+                    .section.section_v3
+                        .section_inner
+                            .robot_block
+                                .robot_info
+                                    .robot_icon 
+                                        img(src='i/robot.svg')
+                                    .caption_v3 90% вопросов по заказам обслуживает робот. <br>Менеджер подключается в нестандартных ситуациях
+                                .robot_info
+                                    .robot_profitably
+                                        img(src='i/coin.svg')
+                                        span выгодно
+                                    .caption_v3 Дешевле, чем обработка <br> колл-центром по телефону или SMS
+                        
+                            ul.robot_features
+                                li
+                                    .robot_feature
+                                        .robot_feature_icon
+                                            img(src='i/chatting.svg')
+                                        .caption_v3 SMS — односторонняя связь, Flomni — двустороннее общение
+                                        
+                                li
+                                    .robot_feature
+                                        .robot_feature_icon
+                                            img(src='i/chat-2.svg')
+                                        .caption_v3 Вы попадаете в список диалогов с друзьями, а не в ящик со спамом
+                            #price.tariff_block
+                                .caption_v2.text_center Тарифные планы
+                                
+                                ul.tariff_list
+                                    li 
+                                        .tariff_unit
+                                            .tariff_name Базовый
+                                            .tariff_price 1200 ₽/мес
+                                            ul.tariff_options
+                                                li Все каналы
+                                                li 1 пользователь
+                                                li до 1 500 контактов
+                                                li Безлимитные сообщения
+                                            .tariff_controls
+                                                a.btn_v2.tariff_btn.btn_white_orange(href='#')
+                                                    span Подключить
+                                
+                                    li 
+                                        .tariff_unit
+                                            .tariff_name Оптимальный
+                                            .tariff_price 3000 ₽/мес
+                                            ul.tariff_options
+                                                li Все каналы
+                                                li 3 пользователя
+                                                li до 4 000 контактов
+                                                li Безлимитные сообщения
+                                            .tariff_controls
+                                                a.btn_v2.tariff_btn.btn_white_orange(href='#')
+                                                    span Подключить
+                                
+                                    li 
+                                        .tariff_unit
+                                            .tariff_name Премиум
+                                            .tariff_price 7000 ₽/мес
+                                            ul.tariff_options
+                                                li Все каналы
+                                                li 5 пользователей
+                                                li до 10 000 контактов
+                                                li Безлимитные сообщения
+                                            .tariff_controls
+                                                a.btn_v2.tariff_btn.btn_white_orange(href='#')
+                                                    span Подключить
+                            
+                            .additional_services
+                                .caption_v2.text_center С каждым обработанным заказом<br>вы накапливаете аудиторию<br>для применения других решений Flomni
+                                
+                                .web_pages
+                                    .mob_hidden: img(src='i/webpages.png')
+                                    .dt_hidden: img(src='i/webpages_mob.png')
+                                    
+                                    .additional_service_item._service_1 Допродажи, реально  увеличивающие&nbsp;средний чек.
+                                    .additional_service_item._service_2 Уведомления об акциях и новинках, которые читают
+                                    .additional_service_item._service_3 Сценарии реактивации, проверенные на практике
+                                    .additional_service_item._service_4 Сбор обратной связи от клиентов, чтобы стать лучше конкурентов
+                                        
+                    .section.section_v4
+                        .section_inner
+                            .faq_block
+                                .caption_v2 Частые вопросы
+
+                                .faq_question Нужен ли программист для внедрения?
+                                .faq_answer Нет. Вся интеграция ваших аккаунтов с Flomni происходит в несколько кликов без привлечения программиста.
+                                        
+                                .faq_question Много времени будет уходить на переписку?
+                                .faq_answer Нет. Большую часть работы можно автоматизировать — настроить автоматические ответы и сценарии и даже добавить чат-бота. И вся эти настройки производятся в интерфейсе сервиса без привлечения программиста.
+                                        
+                                .faq_question Это всё сложно. Надо разбираться. Я лучше по-старинке.
+                                .faq_answer Мы ведём вас по процессу внедрения с момента подачи заявки до полной настройки и интеграции сервиса на вашей стороне. Также мы предосталяем примера и лучшие практики применения Flomni для того, чтобы вы могли по максимому использовать его возможности.
+                                    
+                            .text_center
+                                a.btn_v3.faq_btn.btn_blue(href='#')
+                                    span Посмотреть в действии
+                                    
+                    .section.section_v5
+                        .section_inner
+                            .caption_v2.text_center Компании уже используют мессенджеры
+                            .client_slider
+                                .clientSlider
+                                    +loop_while(3)
+                                        .client_block.slide
+                                            ul.clients_previews
+                                                li
+                                                    img(src='i/preview1.jpg')
+                                                li
+                                                    img(src='i/preview2.jpg')
+                                            
+                                            .client_info
+                                                .client_logo
+                                                    img(src='i/cdec.png')
+                                            
+                                                p Сдек подтверждает доставку в Viber и Telegram. Покупатели выбирают дату и время, могут изменить адрес доставки, общаясь с ботом.Все изменения отображаются в базе курьерской службы автоматически.
+                                        
+                                .text_center
+                                    .clientSliderPrev.slide_prev
+                                    .clientSliderNext.slide_next
+                                
+                            .text_center
+                                a.btn_v3.btn_orange.client_btn(href='#')
+                                    span Присоединиться
+                                    
+                    .section.section_v6
+                        .section_inner
+                            .caption_v4.text_center Интеграция со всеми популярными CMS “из коробки”
+                                
+                            .caption_v3.text_center Интегрируйте чаты в несколько кликов с вашей CMS<br>и отслеживайте всю историю взаимодействия с вашими клиентами
+                                
+                            ul.integration_list
+                                li 
+                                    .integration_box
+                                        .cms_logo
+                                            img(src='i/1c.b.png')
+                                        .cms_name 1С·БИТРИКС
+                                        a.btn_v4.cms_btn.btn_blue(href='#')
+                                            span Подключить к Flomni
+                                                
+                                li 
+                                    .integration_box
+                                        .cms_logo
+                                            img(src='i/umi.png')
+                                        .cms_name UMI.CMS
+                                        a.btn_v4.cms_btn.btn_blue(href='#')
+                                            span Подключить к Flomni
+                                                
+                                li 
+                                    .integration_box
+                                        .cms_logo
+                                            img(src='i/netcat.png')
+                                        .cms_name NetCat
+                                        a.btn_v4.cms_btn.btn_blue(href='#')
+                                            span Подключить к Flomni
+                                                
+                                li 
+                                    .integration_box
+                                        .cms_logo
+                                            img(src='i/host.png')
+                                        .cms_name HostCMS
+                                        a.btn_v4.cms_btn.btn_blue(href='#')
+                                            span Подключить к Flomni
+                                            
+                      
+            .footer
+                .section_inner
+                    .copyright &copy; 2016 ООО “Омнитек”
+                    ul.footer_menu
+                        li: a(href='#') Сервис
+                        li: a(href='#') Сценарии применения
+                        li: a(href='#') Для бизнеса
+                        li: a(href='#') Разработчикам
+                        
+        +popups()
+        +scripts()
