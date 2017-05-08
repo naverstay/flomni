@@ -24,11 +24,13 @@
   }
 
   &.dialog_g_size_1 {
+    border-radius: 8px;
+    overflow: hidden;
+
     @include respond-to-max($resp_step_2) {
       max-width: 95%;
     }
   }
-
 }
 
 .dialog_global {
@@ -76,26 +78,23 @@
   .dialog_close_butt_mod_1 & {
     // виды крестиков закрытия
     @extend %icon_pseudo;
-    @extend .green_btn;
     cursor: pointer;
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 6px;
+    right: 5px;
     width: 28px;
     height: 28px;
-    border-radius: 100%;
+    text-align: center;
+    background: none;
 
     &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      content: $i-close;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 18px;
+      color: #b2c8de;
       line-height: 28px;
-      text-align: center;
     }
-
   }
 
   .no_close_mod & {
@@ -116,7 +115,7 @@
 
   .dialog_g_size_1 & {
     padding: 10px 50px 10px 20px;
-    background: #f4f4f4;
+    background: #fff;
     color: #1d1d1b;
     font-size: 26px;
     font-weight: bold;

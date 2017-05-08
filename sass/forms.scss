@@ -1,4 +1,50 @@
 .form_cell {
   @extend %clearfix;
+  line-height: 40px;
+  margin-bottom: 27px;
 
+  .form_label {
+    float: left;
+    width: 85px;
+    font-size: 18px;
+  }
+
+  .input_w {
+    float: left;
+    width: 265px;
+  }
+}
+
+.popup_v1 {
+  background: #fff;
+  padding: 7px 25px 55px;
+
+  .caption_v1 {
+    margin-bottom: 34px;
+  }
+}
+
+.popup_inner {
+
+  @include respond-to-min($resp_step_2) {
+    padding: 0 30px;
+  }
+}
+
+.input_w {
+  position: relative;
+}
+
+.f_input {
+  display: block;
+  width: 100%;
+
+  &.input_v1 {
+    height: 40px;
+    padding: 10px 14px;
+    line-height: 18px;
+    border-radius: 3px;
+    border: 1px solid #c4d6e6;
+    color: #91b2d1;
+  }
 }

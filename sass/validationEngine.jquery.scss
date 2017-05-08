@@ -85,7 +85,6 @@
       border-right: none;
       border-left: 8px solid #e82022;
     }
-
   }
 
   .error_holder_v1 & {
@@ -265,9 +264,9 @@ body.rtl .formError .formErrorArrow {
   &.relative_mode {
     .formErrorContent {
       background: none;
-      color: #c30000;
-      padding: 0;
-      font-size: 11px;
+      color: #ff5d40;
+      padding: 2px 15px;
+      font-size: 12px;
       text-align: left;
 
       p {

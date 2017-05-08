@@ -4,6 +4,7 @@ var body_var,
     displaySlider,
     clientSlider,
     $callback_popup,
+    $thanks_popup,
     global_window_Height,
     inputMaskEvents = {
         "oncomplete": function (ev) {
@@ -32,12 +33,29 @@ $(function ($) {
         this.play();
     });
 
-    body_var.delegate('.task_unit .caption_v1', 'click', function () {
-        console.log($(this).parent().attr('data-slick-index'));
-        if (taskSlider) {
-            taskSlider.slick('slickGoTo', $(this).parent().attr('data-slick-index'));
-        }
-    });
+    body_var
+        .delegate('.openJoinPopup', 'click', function () {
+            $callback_popup.dialog('open');
+            return false;
+        })
+        .delegate('.openThanksPopup', 'click', function () {
+            $callback_popup.dialog('close');
+            $thanks_popup.dialog('open');
+            return false;
+        })
+        .delegate('.task_unit .caption_v1', 'click', function () {
+            if (taskSlider) {
+                taskSlider.slick('slickGoTo', $(this).parent().attr('data-slick-index'));
+            }
+        })
+        .delegate('.scrollTo', 'click', function () {
+            var target = $($(this).attr('href'));
+
+            if (target.length) {
+                docScrollTo(target.offset().top, 1000);
+            }
+
+        });
 
     heroSlider = $('.heroSlider').slick({
         dots: false,
@@ -128,7 +146,7 @@ $(function ($) {
         modal: true,
         closeOnEscape: true,
         closeText: '',
-        dialogClass: 'dialog_g_size_1',
+        dialogClass: 'dialog_g_size_1 dialog_close_butt_mod_1',
         //appendTo: '.wrapper',
         width: 540,
         draggable: true,
@@ -142,9 +160,23 @@ $(function ($) {
         }
     });
 
-    $('.openJoinPopup').on('click', function () {
-        $callback_popup.dialog('open');
-        return false;
+    $thanks_popup = $('#thanks_popup').dialog({
+        autoOpen: false,
+        modal: true,
+        closeOnEscape: true,
+        closeText: '',
+        dialogClass: 'dialog_g_size_1 dialog_close_butt_mod_1',
+        //appendTo: '.wrapper',
+        width: 540,
+        draggable: true,
+        collision: "fit",
+        position: {my: "top center", at: "top center", of: window},
+        open: function (event, ui) {
+
+        },
+        close: function (event, ui) {
+
+        }
     });
 
     initMask();
@@ -155,6 +187,19 @@ $(function ($) {
 
 });
 
+function checkGoal(goal) {
+    console.log(goal, yaCounter44475754);
+    if (yaCounter44475754) yaCounter44475754.reachGoal(goal);
+}
+
+function docScrollTo(pos, speed, callback) {
+
+    $('html,body').animate({'scrollTop': pos}, speed, function () {
+        if (typeof(callback) == 'function') {
+            callback();
+        }
+    });
+}
 
 function initValidation() {
     $('.validateMe').each(function (ind) {
@@ -173,7 +218,7 @@ function initValidation() {
             //doNotShowAllErrosOnSubmit: true,
             //focusFirstField          : false,
             autoHidePrompt: true,
-            autoHideDelay: 2000,
+            autoHideDelay: 3000,
             autoPositionUpdate: false,
             prettySelect: true,
             //useSuffix                : "_VE_field",
