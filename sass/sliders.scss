@@ -189,16 +189,27 @@
   overflow: hidden;
 
   @include respond-to-min($resp_step_2) {
-    height: 480px;
+    height: 480px + 77px;
   }
 
-  &:after {
+  &:after,
+  &:before {
     pointer-events: none;
     content: '';
     position: absolute;
-    bottom: 0;
     right: 0;
     left: 0;
+    z-index: 1;
+  }
+
+  &:before {
+    height: 77px;
+    bottom: 0;
+    background: #0065af;
+  }
+
+  &:after {
+    bottom: 77px;
     height: 55px;
     background: -moz-linear-gradient(top, rgba(0, 101, 175, 0.1) 0%, rgba(0, 101, 175, 0.95) 100%);
     background: -webkit-linear-gradient(top, rgba(0, 101, 175, 0.1) 0%, rgba(0, 101, 175, 0.95) 100%);
@@ -208,7 +219,6 @@
 }
 
 .task_msg_slider {
-  pointer-events: none;
   position: relative;
   overflow: hidden;
   display: inline-block;
@@ -221,16 +231,22 @@
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
   background-size: 100% 100%;
-
 }
 
 .display_slider {
   height: 350px;
   overflow: hidden;
+
+  .slick-track {
+    @extend %clearfix;
+  }
 }
 
 .display_slide {
   @extend %clearfix;
-  padding: 12px 15px;
+  height: 350px;
+  overflow-x: hidden;
+  //overflow-y: scroll;
+  padding: 12px 0;
   float: left;
 }

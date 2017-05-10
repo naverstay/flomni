@@ -1,4 +1,5 @@
 var body_var,
+    msgTimer,
     heroSlider,
     taskSlider,
     displaySlider,
@@ -39,13 +40,19 @@ $(function ($) {
             return false;
         })
         .delegate('.openThanksPopup', 'click', function () {
-            $callback_popup.dialog('close');
-            $thanks_popup.dialog('open');
+            if ($callback_popup.find('form').validationEngine('validate')) {
+                checkGoal('connect_form_send');
+                $callback_popup.dialog('close');
+                $thanks_popup.dialog('open');
+            } else {
+                checkGoal('connect_form_error');
+            }
+
             return false;
         })
-        .delegate('.task_unit .caption_v1', 'click', function () {
+        .delegate('.task_unit', 'click', function () {
             if (taskSlider) {
-                taskSlider.slick('slickGoTo', $(this).parent().attr('data-slick-index'));
+                taskSlider.slick('slickGoTo', $(this).attr('data-slick-index'));
             }
         })
         .delegate('.scrollTo', 'click', function () {
@@ -55,13 +62,14 @@ $(function ($) {
                 docScrollTo(target.offset().top, 1000);
             }
 
+            return false;
         });
 
     heroSlider = $('.heroSlider').slick({
         dots: false,
         infinite: true,
         arrows: true,
-        // autoplay: true,
+        autoplay: true,
         //variableWidth: true,
         speed: 600,
         autoplaySpeed: 3000,
@@ -79,13 +87,13 @@ $(function ($) {
 
     taskSlider = $('.taskSlider').slick({
         dots: false,
-        infinite: false,
+        infinite: true,
         arrows: false,
         vertical: true,
-        // autoplay: true,
+        autoplay: false,
         //variableWidth: true,
         speed: 600,
-        autoplaySpeed: 5000,
+        // autoplaySpeed: 20000,
         zIndex: 1,
         initialSlide: 0,
         //centerPadding: '0',
@@ -99,18 +107,36 @@ $(function ($) {
     });
 
     displaySlider = $('.displaySlider')
-        .on('beforeChange', function (event, sld) {
+        .on('init', function (event, sld) {
+            startMsg(sld);
 
+            $('.display_slide').each(function (ind) {
+                $(this).mCustomScrollbar({
+                    documentTouchScroll: true,
+                    theme: "dark",
+                    scrollEasing: "linear",
+                    mouseWheel: {preventDefault: true}
+                });
+            });
+        })
+        .on('afterChange', function (event, sld) {
+            startMsg(sld);
+        })
+        .on('beforeChange', function (event, sld) {
+            clearTimeout(msgTimer);
+            $(sld.$slides[sld.currentSlide]).find('._active').removeClass('_active').hide();
+            $('.msg_dot').remove();
         })
         .slick({
             dots: false,
+            swipe: false,
             infinite: true,
             arrows: false,
             fade: true,
-            // autoplay: true,
+            autoplay: false,
             //variableWidth: true,
             speed: 600,
-            autoplaySpeed: 5000,
+            // autoplaySpeed: 5000,
             zIndex: 1,
             initialSlide: 0,
             //centerPadding: '0',
@@ -156,7 +182,7 @@ $(function ($) {
 
         },
         close: function (event, ui) {
-
+            $callback_popup.find('form')[0].reset();
         }
     });
 
@@ -187,8 +213,59 @@ $(function ($) {
 
 });
 
+function startMsg(sld, question) {
+    var dot = $('<span class="msg_dot"/>'),
+        ind = sld.currentSlide, slide = $(sld.$slides[ind]),
+        next_question, answer;
+
+    if (question) {
+        next_question = slide.find('.taskQuestion').eq(question);
+    } else {
+        question = 0;
+        next_question = slide.find('.taskQuestion').first();
+    }
+
+    next_question.closest('.task_msg').show();
+
+    msgTimer = setTimeout(function () {
+
+        slide.mCustomScrollbar("scrollTo", "bottom", {
+            scrollInertia: 500
+        });
+
+        answer = next_question.closest('.task_msg').addClass('_active').next('.taskAnswer');
+
+        next_question.append(dot);
+
+        msgTimer = setTimeout(function () {
+            answer.show();
+
+            dot.animate({left: '25px'}, 800, function () {
+
+                slide.mCustomScrollbar("scrollTo", "bottom", {
+                    scrollInertia: 500
+                });
+
+                dot.addClass('_clicked');
+
+                msgTimer = setTimeout(function () {
+                    dot.removeClass('_clicked');
+
+                    answer.addClass('_active');
+
+                    if (question == slide.find('.taskQuestion').length) {
+                        taskSlider.slick('slickNext');
+                    } else {
+                        startMsg(sld, question + 1);
+                    }
+
+                }, 500);
+            });
+        }, 1000);
+    }, 1200);
+}
+
 function checkGoal(goal) {
-    console.log(goal, yaCounter44475754);
     if (yaCounter44475754) yaCounter44475754.reachGoal(goal);
 }
 
@@ -266,3 +343,13 @@ function all_dialog_close_gl() {
         }
     });
 }
+
+$(window).resize(function () {
+
+}).load(function () {
+
+    s = skrollr.init({
+        //forceHeight: false
+    });
+
+});

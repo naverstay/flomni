@@ -1,7 +1,7 @@
 include mixins.pug
 doctype html
 html(lang='ru')
-    +dev_head('Flomni', 'i/Flomni_logo.svg')
+    +dev_head('Flomni — обработка заказов вашего магазина в мессенджерах', 'i/Flomni_logo.svg')
 
     body
         .wrapper
@@ -71,7 +71,7 @@ html(lang='ru')
                                             span Подключиться
                                             
                                     p.text_center
-                                        a.gl_link.link_blue(href='#') или узнать о Flomni больше
+                                        a.gl_link.link_blue.scrollTo(href='#how') или узнать о Flomni больше
 
                             .section_inner
                                 .service_info
@@ -167,64 +167,47 @@ html(lang='ru')
                                                 .task_msg_battery 100%
                                                 .task_msg_caption Интернет-магазин
                                             .displaySlider.display_slider
-                                                +loop_while(3)
+                                                +loop_while(6)
                                                     .display_slide
                                                         .task_msg._left
                                                             p Вы оформили заказ №312 на сумму 1 521 руб. Подтверждаете?
-                                                            p._active
+                                                            p.taskQuestion
                                                                 a(href='#') Да, подтверждаю
                                                             p
                                                                 a(href='#') Хочу уточниить состав заказа
                                                             p
                                                                 a(href='#') Нет, отмените заказ
     
-                                                        .task_msg._right
+                                                        .task_msg._right.taskAnswer
                                                             p Да, подтверждаю
     
                                                         .task_msg._left
                                                             p Как бы Вы хотели получить заказ?
                                                             p
                                                                 a(href='#') Самовывоз
-                                                            p
+                                                            p.taskQuestion
                                                                 a(href='#') Курьерская доставка
     
-                                                        .task_msg._right
+                                                        .task_msg._right.taskAnswer
                                                             p Сколько стоит курьерская доставка?
     
                                                         .task_msg._left
-                                                            p 250 рублей до квартиры
+                                                            p.taskQuestion 250 рублей до квартиры
     
-                                                        .task_msg._right
-                                                            p Сколько стоит курьерская доставка?
-
-                                                    .display_slide
-                                                        .task_msg._left
-                                                            p 250 рублей до квартиры
-                                                        
-                                                        .task_msg._right
+                                                        .task_msg._right.taskAnswer
                                                             p Сколько стоит курьерская доставка?
                                                             
                                                         .task_msg._left
-                                                            p Как бы Вы хотели получить заказ?
-                                                            p
-                                                                a(href='#') Самовывоз
-                                                            p
-                                                                a(href='#') Курьерская доставка
-
-                                                        .task_msg._right
-                                                            p Сколько стоит курьерская доставка?
-                                                    
-                                                        .task_msg._left
                                                             p Вы оформили заказ №312 на сумму 1 521 руб. Подтверждаете?
-                                                            p._active
+                                                            p
                                                                 a(href='#') Да, подтверждаю
                                                             p
                                                                 a(href='#') Хочу уточниить состав заказа
-                                                            p
+                                                            p.taskQuestion
                                                                 a(href='#') Нет, отмените заказ
 
-                                                        .task_msg._right
-                                                            p Да, подтверждаю
+                                                        .task_msg._right.taskAnswer
+                                                            p Заказ отменен
 
                                 .mob_center
                                     a.btn_v2.try_btn.btn_red.openJoinPopup(href='#' onclick="checkGoal('connect_buttonTopBanner')")
@@ -302,13 +285,28 @@ html(lang='ru')
                                 .caption_v2.text_center С каждым обработанным заказом<br>вы накапливаете аудиторию<br>для применения других решений Flomni
                                 
                                 .web_pages
-                                    .mob_hidden: img(src='i/webpages.png' alt='webpages')
                                     .dt_hidden: img(src='i/webpages_mob.png' alt='webpages_mob')
                                     
-                                    .additional_service_item._service_1 Допродажи, реально  увеличивающие&nbsp;средний чек.
-                                    .additional_service_item._service_2 Уведомления об акциях и новинках, которые читают
-                                    .additional_service_item._service_3 Сценарии реактивации, проверенные на практике
-                                    .additional_service_item._service_4 Сбор обратной связи от клиентов, чтобы стать лучше конкурентов
+                                    .additional_service_item._service_1(data-0='opacity: 0;' data-50-bottom-center='opacity: 0; transform: translate(0%,10%);' data-150-top='opacity: 1; transform: translate(0,0);')
+                                        .additional_s_img
+                                            img(src='i/webpage_1.png' alt='webpage 1')
+                                        .additional_s_text(data-0='opacity: .5;' data-50-bottom-center='opacity: .5; transform: translate(0%,-80px);' data-150-top='opacity: 1; transform: translate(0,0);') 
+                                            | Допродажи, реально  увеличивающие&nbsp;средний чек.
+                                    .additional_service_item._service_2(data-0='opacity: 0;' data-100-bottom-center='opacity: 0; transform: translate(0%,15%);' data-150-top='opacity: 1; transform: translate(0,0);')
+                                        .additional_s_img
+                                            img(src='i/webpage_2.png' alt='webpage 2')
+                                        .additional_s_text(data-0='opacity: .5;' data-100-bottom-center='opacity: .5; transform: translate(0%,-80px);' data-150-top='opacity: 1; transform: translate(0,0);') 
+                                            | Уведомления об акциях и новинках, которые читают
+                                    .additional_service_item._service_3(data-0='opacity: 0;' data-150-bottom-center='opacity: 0; transform: translate(0%,20%);' data-150-top='opacity: 1; transform: translate(0,0);')
+                                        .additional_s_img
+                                            img(src='i/webpage_3.png' alt='webpage 3')
+                                        .additional_s_text(data-0='opacity: .5;' data-150-bottom-center='opacity: .5; transform: translate(0%,-80px);' data-150-top='opacity: 1; transform: translate(0,0);') 
+                                            | Сценарии реактивации, проверенные на практике
+                                    .additional_service_item._service_4(data-0='opacity: 0;' data-200-bottom-center='opacity: 0; transform: translate(0%,25%);' data-150-top='opacity: 1; transform: translate(0,0);')
+                                        .additional_s_img
+                                            img(src='i/webpage_4.png' alt='webpage 4')
+                                        .additional_s_text(data-0='opacity: .5;' data-200-bottom-center='opacity: .5; transform: translate(0%,-80px);' data-150-top='opacity: 1; transform: translate(0,0);') 
+                                            | Сбор обратной связи от клиентов, чтобы стать лучше конкурентов
                                         
                     .section.section_v4
                         .section_inner
@@ -397,8 +395,8 @@ html(lang='ru')
                       
             .footer
                 .section_inner
-                    .copyright &copy; 2016 ООО “Омнитек”
-                    ul.footer_menu
+                    .copyright &copy; 2016 - 2017 ООО “Омнитек”.
+                    //-ul.footer_menu
                         li: a(href='#') Сервис
                         li: a(href='#') Сценарии применения
                         li: a(href='#') Для бизнеса
