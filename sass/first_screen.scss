@@ -601,12 +601,14 @@ body {
 }
 
 .msg_dot {
+  //@include transition_all(opacity .3s .3s);
   position: absolute;
   top: 0;
   left: 80px;
   width: 12px;
   height: 12px;
   border-radius: 100%;
+  opacity: 0;
   background: rgba(255, 93, 64, .75);
 
   &:before {

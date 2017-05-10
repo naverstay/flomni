@@ -240,7 +240,7 @@ function startMsg(sld, question) {
         msgTimer = setTimeout(function () {
             answer.show();
 
-            dot.animate({left: '25px'}, 800, function () {
+            dot.animate({left: '25px', opacity : 1}, 800, function () {
 
                 slide.mCustomScrollbar("scrollTo", "bottom", {
                     scrollInertia: 500
