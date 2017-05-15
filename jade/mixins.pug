@@ -40,7 +40,7 @@ mixin popups()
                     .input_w: input#callback_phone.f_input.input_v1(name='callback_phone' class='validate[required]' data-inputmask="'mask': '[+7] (999) 999 99 99', 'clearIncomplete' : true" data-errormessage="Введите номер телефона" )
                     
                 .form_cell
-                    .form_label &nbsp;
+                    .form_label.mob_hidden &nbsp;
                     .input_w.text_center
                         button.btn_v5.btn_orange_2.order_btn.openThanksPopup
                             span Заказать
@@ -49,6 +49,7 @@ mixin popups()
         .caption_v1.text_center Спасибо, менеджер свяжется с Вами в течение 1 рабочего дня
                             
 mixin scripts()
+    script(src='js/modernizr.js')
     script(src='js/jquery1.10.js')
     script(src='js/jquery-ui-1.11.4.js')
     script(src='js/jquery.inputmask.bundle.js')

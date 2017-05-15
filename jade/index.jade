@@ -13,7 +13,7 @@ html(lang='ru')
                                 img(src='i/Flomni_logo.svg' alt='Flomni_logo')
 
                         .mob_menu
-                            .mob_menu_btn
+                            a.mob_menu_btn.openMobMenu(href='#')
                     
                         .menu_holder: ul.main_menu
                             li.menu_item
@@ -35,7 +35,7 @@ html(lang='ru')
                     .section.section_v1
                         .hero_block
                             .video_holder
-                                video#bgvid.video(poster="i/videohive.png", muted="muted", loop="loop")
+                                video#bgvid.video_block(poster="i/videohive.png", muted="muted", loop="loop")
                                     source(src="video/hero.webm", type="video/webm")
                                     source(src="video/hero.mp4", type="video/mp4")
 
@@ -75,7 +75,7 @@ html(lang='ru')
 
                             .section_inner
                                 .service_info
-                                    .caption_v1 Сервис для обработки заказов ваших клиентов в мессенджерах
+                                    .caption_v1 Сервис для обработки заказов ваших&nbsp;клиентов в мессенджерах
                                     ul.service_list
                                         li
                                             .service_item
@@ -85,17 +85,20 @@ html(lang='ru')
                                         li
                                             .service_item
                                                 .service_img: img(src='i/online-shop.svg' alt='onlinop.svg')
-                                                p Допродажи прямо в мессенджере
+                                                p Допродажи прямо в&nbsp;мессенджере
                                                 
                                         li
                                             .service_item
                                                 .service_img: img(src='i/magic-wand2.svg' alt='magicd2.svg')
-                                                p Готовые авто-сценарии обработки заказа
+                                                p 
+                                                    | Готовые 
+                                                    span._wnw авто-сценарии
+                                                    |  обработки заказа
                                                 
                                         li
                                             .service_item
                                                 .service_img: img(src='i/customer-service.svg' alt='customer-service')
-                                                p Отличная техподдержка и кейсы от сервиса
+                                                p Отличная техподдержка и&nbsp;кейсы&nbsp;от сервиса
                                 #how.customer_service_block
                                     //-.customer_service_clouds
                                         img(src='i/soc_clouds.png' alt='soc_clouds')
@@ -208,6 +211,11 @@ html(lang='ru')
 
                                                         .task_msg._right.taskAnswer
                                                             p Заказ отменен
+                                                        
+                                        | <br>
+                                        .task_msg_slider_controls
+                                            .taskSliderPrev.slide_prev.scrollTo(data-href='#tasks')
+                                            .taskSliderNext.slide_next.scrollTo(data-href='#tasks')
 
                                 .mob_center
                                     a.btn_v2.try_btn.btn_red.openJoinPopup(href='#' onclick="checkGoal('connect_buttonTopBanner')")
@@ -282,10 +290,15 @@ html(lang='ru')
                                                     span Подключить
                             
                             .additional_services
-                                .caption_v2.text_center С каждым обработанным заказом<br>вы накапливаете аудиторию<br>для применения других решений Flomni
+                                .caption_v2.text_center 
+                                    | С каждым обработанным заказом 
+                                    span.mob_hidden <br>
+                                    | вы накапливаете аудиторию 
+                                    span.mob_hidden <br>
+                                    | для применения других решений Flomni
                                 
                                 .web_pages
-                                    .dt_hidden: img(src='i/webpages_mob.png' alt='webpages_mob')
+                                    .web_pages_bg: img(src='i/webpages_mob.png' alt='webpages_mob')
                                     
                                     .additional_service_item._service_1(data-0='opacity: 0;' data-50-bottom-center='opacity: 0; transform: translate(0%,10%);' data-150-top='opacity: 1; transform: translate(0,0);')
                                         .additional_s_img
@@ -357,7 +370,10 @@ html(lang='ru')
                         .section_inner
                             .caption_v4.text_center Интеграция со всеми популярными CMS “из коробки”
                                 
-                            .caption_v3.text_center Интегрируйте чаты в несколько кликов с вашей CMS<br>и отслеживайте всю историю взаимодействия с вашими клиентами
+                            .caption_v3.text_center 
+                                | Интегрируйте чаты в несколько кликов с вашей CMS 
+                                span.mob_hidden <br>
+                                | и отслеживайте всю историю взаимодействия с вашими клиентами
                                 
                             ul.integration_list
                                 li 
@@ -391,7 +407,10 @@ html(lang='ru')
                                         .cms_name HostCMS
                                         a.btn_v4.cms_btn.btn_blue.openJoinPopup(href='#' onclick="checkGoal('connect_buttonCMS4')")
                                             span Подключить к Flomni
-                                            
+                            
+                            .text_center.dt_hidden
+                                a.btn_v4.cms_btn.btn_blue.openJoinPopup(href='#' onclick="checkGoal('connect_buttonCMSAllMobile')")
+                                    span Подключить к Flomni
                       
             .footer
                 .section_inner

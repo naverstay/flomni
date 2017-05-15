@@ -47,33 +47,96 @@
     padding-left: 12px;
     letter-spacing: -.3px;
   }
+
+  @include respond-to-max($resp_step_2) {
+    width: 90px;
+  }
 }
 
 .mob_menu {
   float: right;
+  position: relative;
+  z-index: 5;
+
+  @include respond-to-min($resp_step_2) {
+    display: none;
+  }
 }
 
 .mob_menu_btn {
+  @extend %icon_pseudo;
   display: block;
+  width: 26px;
+  height: 30px;
   position: relative;
+  text-align: center;
 
+  &:before {
+    content: $i-menu;
+    font-size: 26px;
+    line-height: 30px;
+    color: #fff;
+  }
+
+  .menu_opened & {
+    &:before {
+      content: $i-close;
+    }
+  }
 }
 
 // *********  menu
 
 .menu_holder {
-  display: inline-block;
-  vertical-align: middle;
+
+  @include respond-to-min($resp_step_2) {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    min-width: 215px;
+    background: #4469a7;
+    border: 1px solid #708cbc;
+    border-right: 0;
+    padding-top: 50px;
+    -webkit-transition: transform 0.3s;
+    -ms-transition: transform 0.3s;
+    transition: transform 0.3s;
+    -webkit-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+
+    .menu_opened & {
+      -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+  }
 }
 
 .main_menu {
-  float: right;
+
+  @include respond-to-min($resp_step_2) {
+    float: right;
+  }
 }
 
 .menu_item {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 0 21px;
+
+  @include respond-to-min($resp_step_2) {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 21px;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    border-top: 1px solid #708cbc;
+  }
 }
 
 .menu_link {
@@ -87,6 +150,12 @@
     text-decoration: none;
   }
 
+  @include respond-to-max($resp_step_2) {
+    padding: 10px 20px;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+  }
 }
 
 .user_menu {
@@ -94,6 +163,10 @@
 
   li {
     float: right;
+  }
+
+  @include respond-to-max($resp_step_2) {
+    display: none;
   }
 
   @include respond-to-min($resp_step_2) {

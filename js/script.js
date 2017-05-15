@@ -1,4 +1,5 @@
 var body_var,
+    s,
     msgTimer,
     heroSlider,
     taskSlider,
@@ -39,6 +40,10 @@ $(function ($) {
             $callback_popup.dialog('open');
             return false;
         })
+        .delegate('.openMobMenu', 'click', function () {
+            body_var.toggleClass('menu_opened');
+            return false;
+        })
         .delegate('.openThanksPopup', 'click', function () {
             if ($callback_popup.find('form').validationEngine('validate')) {
                 checkGoal('connect_form_send');
@@ -60,9 +65,15 @@ $(function ($) {
 
             if (target.length) {
                 docScrollTo(target.offset().top, 1000);
+            } else {
+                target = $($(this).attr('data-href'));
+                
+                if (target.length) {
+                    docScrollTo(target.offset().top, 250);
+                }
             }
 
-            return false;
+            if (this.tagName.toLowerCase() == 'a') return false;
         });
 
     heroSlider = $('.heroSlider').slick({
@@ -70,6 +81,7 @@ $(function ($) {
         infinite: true,
         arrows: true,
         autoplay: true,
+        // autoplay: false,
         //variableWidth: true,
         speed: 600,
         autoplaySpeed: 3000,
@@ -87,8 +99,8 @@ $(function ($) {
 
     taskSlider = $('.taskSlider').slick({
         dots: false,
-        infinite: true,
-        arrows: false,
+        infinite: false,
+        arrows: true,
         vertical: true,
         autoplay: false,
         //variableWidth: true,
@@ -98,8 +110,8 @@ $(function ($) {
         initialSlide: 0,
         //centerPadding: '0',
         slide: '.taskSlider .task_unit',
-        // prevArrow: '.heroSliderPrev',
-        // nextArrow: '.heroSliderNext',
+        prevArrow: '.taskSliderPrev',
+        nextArrow: '.taskSliderNext',
         //appendDots: sld.parent().find('.slider_dots'),
         slidesToShow: 1,
         touchThreshold: 10,
@@ -130,7 +142,7 @@ $(function ($) {
         .slick({
             dots: false,
             swipe: false,
-            infinite: true,
+            infinite: false,
             arrows: false,
             fade: true,
             autoplay: false,
@@ -240,7 +252,7 @@ function startMsg(sld, question) {
         msgTimer = setTimeout(function () {
             answer.show();
 
-            dot.animate({left: '25px', opacity : 1}, 800, function () {
+            dot.animate({left: '25px', opacity: 1}, 800, function () {
 
                 slide.mCustomScrollbar("scrollTo", "bottom", {
                     scrollInertia: 500
@@ -254,7 +266,11 @@ function startMsg(sld, question) {
                     answer.addClass('_active');
 
                     if (question == slide.find('.taskQuestion').length) {
-                        taskSlider.slick('slickNext');
+                        if (sld.currentSlide == sld.$slides.length - 1) {
+                            taskSlider.slick('slickGoTo', 0);
+                        } else {
+                            taskSlider.slick('slickNext');
+                        }
                     } else {
                         startMsg(sld, question + 1);
                     }
@@ -346,10 +362,27 @@ function all_dialog_close_gl() {
 
 $(window).resize(function () {
 
+    setTimeout(function () {
+        initSkrollr();
+    }, 1);
+
 }).load(function () {
 
-    s = skrollr.init({
-        //forceHeight: false
-    });
+    initSkrollr();
 
 });
+
+function initSkrollr() {
+    var winW = $(window).width();
+
+    if (Modernizr.touch) {
+        if (s) s.destroy();
+    } else if (winW >= 1040) {
+        // Init Skrollr
+        s = skrollr.init({
+            // forceHeight: false
+        });
+    } else {
+        if (s) s.destroy();
+    }
+}
