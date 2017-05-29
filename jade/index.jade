@@ -36,31 +36,34 @@ html(lang='ru')
                         .hero_block
                             .video_holder
                                 video#bgvid.video_block(poster="i/videohive.png", muted="muted", loop="loop")
-                                    source(src="video/hero.webm", type="video/webm")
-                                    source(src="video/hero.mp4", type="video/mp4")
+                                    source(src="video/using-smartphone-at-sunset.webm", type="video/webm")
+                                    source(src="video/using-smartphone-at-sunset.mp4", type="video/mp4")
 
                             .section_inner
                                 .hero_slider
                                     .heroSlider
                                         .slide
-                                            .hero_caption Снизьте число отказов <br> по заказам на 41%
+                                            .hero_caption Снизьте число отказов по заказам
                                                 
                                             .hero_text
                                                 p 90% заказов подтверждает робот
                                                 p Покупатель получает уведомление о заказе мгновенно
                                                 p Аврал, ночь, внезапный наплыв заказов в выходные и праздники — заказ будет обработан идеально! 
                                         .slide
-                                            .hero_caption Снизьте число отказов <br> по заказам на 41%
+                                            .hero_caption Увеличьте поток повторных продаж
                                                 
                                             .hero_text
-                                                p 80% заказов подтверждает робот
-                                                p Аврал, ночь, внезапный наплыв заказов в выходные и праздники — заказ будет обработан идеально! 
+                                                p Автоматические рекомендации при подтверждении заказа
+                                                p Сценарии, исключающие человеческий фактор
+                                                p Прозрачная аналитика
+                                                
                                         .slide
-                                            .hero_caption Снизьте число отказов <br> по заказам на 41%
+                                            .hero_caption Сократите затраты на обслуживание клиентов
                                                 
                                             .hero_text
-                                                p 70% заказов подтверждает робот
-                                                p Покупатель получает уведомление о заказе мгновенно
+                                                p Откажитесь от дорогих SMS в пользу мессенджеров
+                                                p Подключайте коллцентр только тогда, когда это действительно необходимо — до 90% заказов можно подтверждать автоматически
+                                                
                                     .slide_conrols
                                         .slide_prev.heroSliderPrev
                                         .slide_next.heroSliderNext
@@ -152,7 +155,7 @@ html(lang='ru')
                                         .caption_v2 Какие задачи помогаем решить
     
                                         .taskSlider.task_slider
-                                            +loop_while(3)
+                                            +loop_while(1)
                                                 .task_unit
                                                     .caption_v1 Подтверждение заказа 2.0
                     
@@ -160,6 +163,10 @@ html(lang='ru')
                                                     
                                                 .task_unit
                                                     .caption_v1 Возврат клиентов
+                    
+                                                    p Верните покупателей, которые давно не покупали в вашем магазине. Экономьте на дорогих SMS и звонках, позволяя клиенту подтвердить заказ в мессенджере, есди для него это удобно. Клиент может подтвердить дату доставки, сделать уточнения и скорректировать заказ. Типовые сценарии не требует участия живого оператора с вашей стороны и полностью автоматизированы.
+                                                .task_unit
+                                                    .caption_v1 Повышение качества обслуживания
                     
                                                     p Верните покупателей, которые давно не покупали в вашем магазине. Экономьте на дорогих SMS и звонках, позволяя клиенту подтвердить заказ в мессенджере, есди для него это удобно. Клиент может подтвердить дату доставки, сделать уточнения и скорректировать заказ. Типовые сценарии не требует участия живого оператора с вашей стороны и полностью автоматизированы.
     
@@ -170,7 +177,119 @@ html(lang='ru')
                                                 .task_msg_battery 100%
                                                 .task_msg_caption Интернет-магазин
                                             .displaySlider.display_slider
-                                                +loop_while(6)
+                                                .display_slide
+                                                    .task_msg._left
+                                                        p Александр, здравствуйте. Вы оформили заказ №312 на сумму 2 536 рублей. Подтверждаете?
+                                                        p.taskQuestion
+                                                            span.task_link Да, подтвердить заказ 
+                                                        p
+                                                            span.task_link Отменить заказ
+
+                                                    .task_msg._right.taskAnswer
+                                                        p Да, подтверждаю
+
+                                                    .task_msg._left
+                                                        p Как Вам удобнее осуществить доставку? Самовывозом — бесплатно, можно забрать уже завтра в Pickpoint. Курьером — 250 рублей, привезем послезавтра.
+
+                                                        p
+                                                            span.task_link Самовывозом
+                                                        p.taskQuestion
+                                                            span.task_link Курьером
+
+                                                    .task_msg._right.taskAnswer
+                                                        p Хорошо, доставка будет осуществлена по указанном при оформлении заказа адресу: Москва, ул. 8 марта, 1, кв. 357. По времени подвезем с 10:00 до 14:00 послезавтра.
+                                                        p.taskQuestion
+                                                            span.task_link Подтверждаю
+                                                        p
+                                                            span.task_link Уточнить дату и время доставки
+
+                                                    .task_msg._right.taskAnswer
+                                                        p Спасибо за оформление заказа! Курьер позвонит за час. Если у Вас возникнут вопросы или уточнения по заказу — просто напишите в этот чат.
+                                                        
+                                                .display_slide
+                                                    .task_msg._left
+                                                        p Мария, здравствуйте. Пол года назад Вы покупали детский стульчик для кормления. Чтобы порадовать Вас сегодня и завтра мы дарим скидку 25% на детские турники. Например, шведскую стенку можно купить всего за 1 753 руб. 
+                                                            
+                                                        p: img(src='i/shvedskaya_stenka_s_zavoda_poetomu_deshevle_mat_v_podarok_skidki_2.jpg')
+                                                            
+                                                        p Давайте я расскажу как воспользоваться этой скидкой?
+
+                                                        p.taskQuestion
+                                                            span.task_link Да, расскажите
+                                                        p
+                                                            span.task_link Мне не интересно
+
+                                                    .task_msg._right.taskAnswer
+                                                        p Да, расскажите
+
+                                                    .task_msg._left
+                                                        p Все, что требуется — просто нажать на кнопку «Купить» ниже. После этого наш менеджер свяжется для согласования удобного времени заказа.
+
+                                                        p.taskQuestion
+                                                            span.task_link Купить
+                                                        p
+                                                            span.task_link Напомнить завтра
+                                                    
+                                                    .task_msg._right.taskAnswer
+                                                        p Мария, спасибо за Ваш заказ! Ему присвоен номер 351. Мы свяжемся с Вами в течение часа для уточнения деталей доставки.
+
+                                                .display_slide
+                                                    .task_msg._left
+                                                        p Максим, здравствуйте. Меня зовут Антон, менеджер по качеству сети сервисов Автогигант. Я очень хочу, чтобы наш сервис и качество работ Вас всецело удовлетворяло. Сможете уделить ару минут небольшому опросу?
+
+                                                        p.taskQuestion
+                                                            span.task_link Да
+                                                        p
+                                                            span.task_link Нет, напомните через день
+                                                        p
+                                                            span.task_link Нет, прошу больше меня не беспокоить
+
+                                                    .task_msg._right.taskAnswer
+                                                        p Да
+
+                                                    .task_msg._left
+                                                        p Как бы Вы оценили качество работ по пятибальной шкале?
+
+                                                        p
+                                                            span.task_link 1
+                                                        p
+                                                            span.task_link 2
+                                                        p
+                                                            span.task_link 3
+                                                        p
+                                                            span.task_link 4
+                                                        p.taskQuestion
+                                                            span.task_link 5
+
+                                                    .task_msg._right.taskAnswer
+                                                        p 5
+                                                            
+                                                    .task_msg._left
+                                                        p Спасибо! Был ли персонал достаточно вежлив, все ли рассказали, не осталось ли вопросов?
+                                                        p
+                                                            span.task_link 1
+                                                        p
+                                                            span.task_link 2
+                                                        p
+                                                            span.task_link 3
+                                                        p.taskQuestion
+                                                            span.task_link 4
+                                                        p
+                                                            span.task_link 5
+                                                            
+                                                    .task_msg._right.taskAnswer
+                                                        p 4
+
+                                                    .task_msg._left.taskQuestion
+                                                        p Максим, могли бы уточнить, как мы можем улучшить свой сервис?
+
+                                                    .task_msg._right.taskAnswer
+                                                        p Обновите мебель в зоне рецепции, а так - все нормально
+                                                        
+                                                    .task_msg._left.taskQuestion
+                                                        p Спасибо, Максим, Вас понял, учтем Ваше мнение! Будем рады видеть Вас у нас в сервисе Автогигант!
+
+                                                //-+loop_while(3)
                                                     .display_slide
                                                         .task_msg._left
                                                             p Вы оформили заказ №312 на сумму 1 521 руб. Подтверждаете?
@@ -344,20 +463,36 @@ html(lang='ru')
                             .caption_v2.text_center Компании уже используют мессенджеры
                             .client_slider
                                 .clientSlider
-                                    +loop_while(3)
-                                        .client_block.slide
-                                            ul.clients_previews
-                                                li
-                                                    img(src='i/preview1.jpg' alt='preview1')
-                                                li
-                                                    img(src='i/preview2.jpg' alt='preview2')
-                                            
-                                            .client_info
-                                                .client_logo
-                                                    img(src='i/cdec.png' alt='cdec')
-                                            
-                                                p Сдек подтверждает доставку в Viber и Telegram. Покупатели выбирают дату и время, могут изменить адрес доставки, общаясь с ботом.Все изменения отображаются в базе курьерской службы автоматически.
+                                    .client_block.slide
+                                        ul.clients_previews
+                                            li
+                                                img(src='i/cdek_screen.png' alt='cdek preview')
+                                        .client_info
+                                            .client_logo
+                                                img(src='i/cdek.png' alt='cdek')
                                         
+                                            p Мы автоматизировали обработку посылок логистической компании CDEK, переведя коммуникацию с получателями в Viber, Telegram, Messenger и VK. Покупатель получает уведомление о готовности товара к доставке, может уточнить адрес курьерской доставки или пункт самовывоза, выбирает дату и время доставки. Нагрузка на контактный центр снизилась на 35%.
+                                                
+                                    .client_block.slide
+                                        ul.clients_previews
+                                            li
+                                                img(src='i/mothercare_screen.png' alt='mothercare preview')
+                                        .client_info
+                                            .client_logo
+                                                img(src='i/mothercare_logo.png' alt='mothercare')
+                                        
+                                            p Более 20% наших онлайн-заказов идут через Фломни, что позволяет сэкономить на коллцентре и автоматизировать допродажи.
+
+                                    .client_block.slide
+                                        ul.clients_previews
+                                            li
+                                                img(src='i/krugrabot_screen.png' alt='krugrabot preview')
+                                        .client_info
+                                            .client_logo
+                                                img(src='i/krugrabot_logo.png' alt='krugrabot')
+                                        
+                                            p Специфика массового набора заключается в непрерывной обработке большого массива резюме. КругРабот оперативно уведомляет соискателей о новых вакансиях, проводит первичный отбор кандидатов. В случае положительного результата кандидат регистрируется в системе и получает приглашение на дистанционное собеседование.
+
                                 .text_center
                                     .clientSliderPrev.slide_prev
                                     .clientSliderNext.slide_next
@@ -423,3 +558,4 @@ html(lang='ru')
                         
         +popups()
         +scripts()
+        

@@ -634,7 +634,12 @@ body {
     }
   }
 
-  a {
+  img {
+    display: block;
+    max-width: 100%;
+  }
+  
+  .task_link {
     color: #00afff;
     text-decoration: underline;
   }
@@ -1070,6 +1075,7 @@ body {
 
 .clients_previews {
   text-align: center;
+  font-size: 0;
 
   li {
     margin-bottom: 17px;
@@ -1096,9 +1102,11 @@ body {
     margin-left: -50px;
     float: left;
     width: 50%;
+    text-align: right;
 
     li {
-      float: left;
+      display: inline-block;
+      vertical-align: top;
       max-width: 50%;
       padding-left: 50px;
     }
